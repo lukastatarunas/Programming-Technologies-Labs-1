@@ -1,7 +1,7 @@
-// 1
-// Lukas Tatarūnas
-// PRIf-17/2
-// 20173131
+/* 1
+Lukas Tatarūnas
+PRIf-17/2
+20173131 */
 
 class LaboratorinisVienas {
     constructor(name, surname) {
