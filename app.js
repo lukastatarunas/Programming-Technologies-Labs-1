@@ -104,13 +104,43 @@ main = () => {
     let maxNumber = 0
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < m; j++) {
-            if (i !== countLetterA() && j !== countLetterA() && arr[i][j] > maxNumber) {
+            if (i !== countLetterA() - 1 && j !== countLetterA() - 1 && arr[i][j] > maxNumber) {
                 maxNumber = arr[i][j]
             }
         }
     }
 
-    console.log(maxNumber)
+    console.log(`Max number: `, maxNumber)
+
+    // 9
+    let sortedRow = []
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m; j++) {
+            if (i === countLetterA() - 1) {
+                console.log(arr[i][j])
+                sortedRow.push(arr[i][j])
+            }
+        }
+    }
+
+    sortRow = () => {
+        const length = sortedRow.length
+
+        for (let i = 0; i < length; i++) {
+          let currentValue = sortedRow[i]
+          let j
+      
+          for (j = i - 1; j >= 0 && sortedRow[j] > currentValue; j--) {
+            sortedRow[j + 1] = sortedRow[j]
+          }
+
+          sortedRow[j + 1] = currentValue
+        }
+
+        return sortedRow
+    }
+
+    console.log(sortRow())
 }
 
 main()
