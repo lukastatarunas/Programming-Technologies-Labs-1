@@ -94,11 +94,23 @@ main = () => {
                 count++
             }
             if (j === m - 1) {
-                console.log(`${i + 1} row has: ${count} numbers bigger than the average!`)
+                console.log(`${ i + 1 } row has: ${ count } numbers bigger than the average!`)
                 count = 0
             }
         }
     }
+
+    // 8
+    let maxNumber = 0
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m; j++) {
+            if (i !== countLetterA() && j !== countLetterA() && arr[i][j] > maxNumber) {
+                maxNumber = arr[i][j]
+            }
+        }
+    }
+
+    console.log(maxNumber)
 }
 
 main()
