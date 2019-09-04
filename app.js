@@ -9,20 +9,19 @@ class LaboratorinisVienas {
         this.surname = surname
     }
 
-    main = () => {
+    main() {
         let n = this.name.length
         let m = this.surname.length
-        let b = n + m
         let arr = []
 
-        for (let i = 0; i < m; i++) {
-            arr.push(new Array(n))
+        for (let i = 0; i < n; i++) {
+            arr.push(new Array(m))
         }
 
         return arr
     }
 
-    countLetterA = () => {
+    countLetterA() {
         let a = 0
         
         for (let i = 0; i < this.name.length; i++) {
@@ -37,23 +36,24 @@ class LaboratorinisVienas {
             }
         }
         
-        console.log(a)
-
         return a
     }
 
-    generateRandomNumber = (start, end) => {
+    generateRandomNumber(start, end) {
         return Math.floor(Math.random() * (end - start + 1) + start)
     }
 
-    fillArray = () => {
+    fillArray(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            let random = this.generateRandomNumber(this.countLetterA(), this.name.length + this.surname.length)
+            arr.push(random)
+        }
         
+        return arr
     }
 
 }
 
 const firstLab = new LaboratorinisVienas("Lukas", "Tatarūnas")
 
-firstLab.main()
-firstLab.countLetterA()
-firstLab.fillArray()
+firstLab.fillArray(firstLab.main())
