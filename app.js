@@ -5,10 +5,9 @@ PRIf-17/2
 
 let n = "Lukas".length
 let m = "Tatarūnas".length
+let arr = []
 
 main = () => {
-    let arr = []
-
     for (let i = 0; i < n; i++) {
         arr.push(new Array(m))
     }
@@ -39,10 +38,12 @@ generateRandomNumber = (start, end) => {
     return Math.floor(Math.random() * (end - start + 1) + start)
 }
 
-fillArray = arr => {
-    for (let i = 0; i < arr.length; i++) {
-        let random = generateRandomNumber(countLetterA(), n + m)
-        arr.push(random)
+fillArray = () => {
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m; j++) {
+            let random = generateRandomNumber(countLetterA(), n + m)
+            arr[i][j] = random
+        }
     }
     
     return arr
