@@ -123,24 +123,37 @@ main = () => {
         }
     }
 
-    sortRow = () => {
-        const length = sortedRow.length
+    sort = arrayForSort => {
+        const length = arrayForSort.length
 
         for (let i = 0; i < length; i++) {
-          let currentValue = sortedRow[i]
+          let currentValue = arrayForSort[i]
           let j
       
-          for (j = i - 1; j >= 0 && sortedRow[j] > currentValue; j--) {
-            sortedRow[j + 1] = sortedRow[j]
+          for (j = i - 1; j >= 0 && arrayForSort[j] > currentValue; j--) {
+            arrayForSort[j + 1] = arrayForSort[j]
           }
 
-          sortedRow[j + 1] = currentValue
+          arrayForSort[j + 1] = currentValue
         }
 
-        return sortedRow
+        return arrayForSort
     }
 
-    console.log(sortRow())
+    console.log(sort(sortedRow))
+
+    // 10
+    let sortedColumn = []
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (i === countLetterA() - 1) {
+                console.log(arr[j][i])
+                sortedColumn.push(arr[j][i])
+            }
+        }
+    }
+
+    console.log(sort(sortedColumn).reverse())
 }
 
 main()
