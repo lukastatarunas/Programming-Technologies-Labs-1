@@ -54,7 +54,7 @@ main = () => {
     fillArray()
 
     // 5
-    console.log(arr)
+    console.table(arr)
 
     // 6
     let averageRows = []
@@ -94,6 +94,7 @@ main = () => {
             if (averageRows[i] < arr[i][j]) {
                 count++
             }
+            
             if (j === m - 1) {
                 console.log(`${ i + 1 } row has: ${ count } numbers bigger than the average!`)
                 count = 0
