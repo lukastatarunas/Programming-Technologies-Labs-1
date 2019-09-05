@@ -8,8 +8,8 @@ PRIf-17/2
 main = () => {
 
     // 3
-    let n = "Lukas".length
-    let m = "Tatarūnas".length
+    let n = `Lukas`.length
+    let m = `Tatarūnas`.length
     let b = n + m
     let arr = []
 
@@ -22,13 +22,13 @@ main = () => {
         let a = 0
         
         for (let i = 0; i < n; i++) {
-            if ("Lukas".charAt(i) === "a") {
+            if (`Lukas`.charAt(i) === "a") {
                 a++
             }
         }
         
         for (let i = 0; i < m; i++) {
-            if ("Tatarūnas".charAt(i) === "a") {
+            if (`Tatarūnas`.charAt(i) === "a") {
                 a++
             }
         }
@@ -88,6 +88,7 @@ main = () => {
 
     // 7
     let count = 0
+    
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < m; j++) {
             if (averageRows[i] < arr[i][j]) {
@@ -102,6 +103,7 @@ main = () => {
 
     // 8
     let maxNumber = 0
+
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < m; j++) {
             if (i !== countLetterA() - 1 && j !== countLetterA() - 1 && arr[i][j] > maxNumber) {
@@ -110,14 +112,14 @@ main = () => {
         }
     }
 
-    console.log(`Max number: `, maxNumber)
+    console.log(`Max number: ${ maxNumber }`)
 
     // 9
     let sortedRow = []
+
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < m; j++) {
             if (i === countLetterA() - 1) {
-                console.log(arr[i][j])
                 sortedRow.push(arr[i][j])
             }
         }
@@ -144,16 +146,29 @@ main = () => {
 
     // 10
     let sortedColumn = []
+
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
             if (i === countLetterA() - 1) {
-                console.log(arr[j][i])
                 sortedColumn.push(arr[j][i])
             }
         }
     }
 
     console.log(sort(sortedColumn).reverse())
+
+    // 11
+    let minNumber = averageColumns[0]
+    let index = 0
+
+    for (let i = 0; i < averageColumns.length; i++) {
+        if (averageColumns[i] < minNumber) {
+            minNumber = averageColumns[i]
+            index = i
+        }
+    }
+
+    console.log(`Min number is: ${ minNumber } and it's index is ${ index }`)
 }
 
 main()
